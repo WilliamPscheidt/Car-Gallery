@@ -1,9 +1,9 @@
 import {Router} from 'express';
 
-import Server from '../controllers/Server.controller';
+import CarsController from '../controllers/Cars.controller';
 
 const router: Router = Router();
 
-router.get("/", Server.status);
+router.post("/cars", CarsController.insert);
 
 export {router};

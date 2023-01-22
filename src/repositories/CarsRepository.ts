@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { ICarsDocument } from "../models/Cars/Cars.types";
 
-export class Cars {
+export class CarsRepository {
     static async insert<T>(model: mongoose.Model<ICarsDocument>, document: T): Promise<boolean> {
         try{
             const newDocument = new model(document)

@@ -7,4 +7,4 @@ export interface ICars {
 }
 
 export interface ICarsDocument extends ICars, Document {}
-export interface ICarsModel extends Model<ICarsDocument> {}
+export type ICarsModel = Model<ICarsDocument>

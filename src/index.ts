@@ -2,8 +2,8 @@
 
 import {HTTPServer} from "./adapters/httpserver.adapter";
 import DatabaseServer from "./adapters/DatabaseServer.adapter"
-import { Cars } from "./repositories/InsertCars";
-import { CarsModel } from "./models/Cars/Cars.model";
+/**import { Cars } from "./repositories/InsertCars";
+import { CarsModel } from "./models/Cars/Cars.model";**/
 
 new DatabaseServer().connect()
 /**Cars.insert(CarsModel, {car_model: "Fusca", car_type: "Novo", car_price: "Mais de 8mil"})**/

@@ -1,4 +1,4 @@
-import mongoose, { model } from "mongoose";
+import mongoose from "mongoose";
 import { ICarsDocument } from "../models/Cars/Cars.types";
 
 export class Cars {

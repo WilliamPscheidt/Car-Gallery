@@ -1,5 +1,5 @@
 import express from "express";
-import {router} from '../router/routes.router'
+import {router} from '../router/routes.router';
 
 export class HTTPServer {
     public server: express.Application = express();
@@ -11,10 +11,10 @@ export class HTTPServer {
     }
 
     private middlewares() {
-        this.server.use(express.json())
+        this.server.use(express.json());
     }
 
     private router() {
-        this.server.use(router)
+        this.server.use(router);
     }
 }

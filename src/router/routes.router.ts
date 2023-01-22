@@ -6,4 +6,4 @@ const router: Router = Router();
 
 router.get("/", Server.status);
 
-export {router}
+export {router};

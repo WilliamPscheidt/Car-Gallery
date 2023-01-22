@@ -1,9 +1,9 @@
-import mongoose from "mongoose"
+import mongoose, { Mongoose } from "mongoose"
 import { configurations } from "../configurations";
 
 class DatabaseServer {
     private connection!: mongoose.Connection;
-    private uri = configurations.database.connection_string
+    private uri = configurations.database.connection_string;
 
     public async connect(): Promise<void> {
         try {
@@ -19,9 +19,8 @@ class DatabaseServer {
             await this.connection.close();
             console.log("MongoDB disconnected");
         } catch(error) {
-            console.log("Error on MongoDB disconnect: ", error)
+            console.log("Error on MongoDB disconnect:", error)
         }
-        
     }
 }
 

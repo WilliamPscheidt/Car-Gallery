@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 import { ICarsDocument } from "../models/Cars/Cars.types";
 
 export class CarsRepository {
-    static async insert<T>(model: mongoose.Model<ICarsDocument>, document: T): Promise<boolean> {
-        try{
+    static async insertCar<T>(model: mongoose.Model<ICarsDocument>, document: T): Promise<boolean> {
+        try {
             const newDocument = new model(document)
             await newDocument.save()
             return true
@@ -11,5 +11,17 @@ export class CarsRepository {
             console.log(error)
             return false
         }
+    }
+
+    static async getCar(model: mongoose.Model<ICarsDocument>, query: object): Promise<object> {
+        return model.find(query);
+    }
+
+    static async updateCar<T>(model: mongoose.Model<ICarsDocument>, query: object, update: object): Promise<void> {
+        model.updateMany(query, update);
+    }
+
+    static async deleteCar<T>(model: mongoose.Model<ICarsDocument>, query: object): Promise<void> {
+        model.deleteMany(query);
     }
 }

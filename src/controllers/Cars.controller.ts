@@ -39,14 +39,15 @@ class CarsController {
     }
 
     public async insertCar(req: Request, res: Response) {
-        const {car_title, car_model, car_type, car_price} = req.body;
+        const {car_title, car_model, car_type, car_price} = req.query;
 
         if(await CarsRepository.insertCar(CarsModel,
              { car_title: car_title,
                car_model: car_model,
                car_type: car_type,
-               car_price: car_price })) {
-            return res.send({ok: "inserted"})
+               car_price: car_price,
+               car_image: req.file?.filename })) {
+            return res.send({ok: "inserted", image: req.file?.filename})
         }
 
         res.send({error: "Error in database query"})

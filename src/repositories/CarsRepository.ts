@@ -17,11 +17,11 @@ export class CarsRepository {
         return model.find(query);
     }
 
-    static async updateCar<T>(model: mongoose.Model<ICarsDocument>, query: object, update: object): Promise<void> {
+    static async updateCar(model: mongoose.Model<ICarsDocument>, query: object, update: object): Promise<void> {
         model.updateMany(query, update);
     }
 
-    static async deleteCar<T>(model: mongoose.Model<ICarsDocument>, query: object): Promise<void> {
+    static async deleteCar(model: mongoose.Model<ICarsDocument>, query: object): Promise<void> {
         model.deleteMany(query);
     }
 }

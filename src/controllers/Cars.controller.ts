@@ -15,10 +15,10 @@ class CarsController {
     }
 
     public async updateCar(req: Request, res: Response) {
-        const {car_id, newCar_model, newCar_type, newCar_price} = req.body;
+        const {car_id, newCar_title, newCar_model, newCar_type, newCar_price} = req.body;
 
         try {
-            CarsRepository.updateCar(CarsModel, {car_id: car_id}, {car_mode: newCar_model, car_type: newCar_type, car_price: newCar_price})
+            CarsRepository.updateCar(CarsModel, {car_id: car_id}, {car_title: newCar_title, car_mode: newCar_model, car_type: newCar_type, car_price: newCar_price})
         } catch(error){
             return res.send({"error": "error in database query"})
         }
@@ -39,10 +39,11 @@ class CarsController {
     }
 
     public async insertCar(req: Request, res: Response) {
-        const {car_model, car_type, car_price} = req.body;
+        const {car_title, car_model, car_type, car_price} = req.body;
 
         if(await CarsRepository.insertCar(CarsModel,
-             { car_model: car_model,
+             { car_title: car_title,
+               car_model: car_model,
                car_type: car_type,
                car_price: car_price })) {
             return res.send({ok: "inserted"})

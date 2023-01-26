@@ -4,10 +4,10 @@ import { CarsModel } from '../models/Cars/Cars.model';
 
 class CarsController {
     public async getCar(req: Request, res: Response) {
-        const {car_id} = req.body;
+        const {car_title} = req.body;
 
         try {
-            const query_result = CarsRepository.getCar(CarsModel, {car_id: car_id})
+            const query_result = await CarsRepository.getCar(CarsModel, {car_title: car_title})
             return res.send({ok: query_result})
         } catch (error) {
             return res.send({error: "error in database query"})

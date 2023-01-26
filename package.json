@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "npx eslint . && npx nodemon",
     "start:production": "npm run build && node build/index.js",
+    "cannon:my:app": "npx autocannon -c 500 -d 30 --workers 6 --renderStatusCodes --letency --warmup [-c 1 -d 2] localhost:3000/teste",
     "build": "rimraf ./build && tsc"
   },
   "keywords": [],

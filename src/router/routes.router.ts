@@ -10,6 +10,9 @@ import { storage } from "../multerConfig";
 const upload = multer({storage: storage});
 
 router.use("/uploads", express.static("uploads"));
+router.get("/teste", (req, res) => {
+    res.status(200).send({ok: "ok"})
+});
 router.post("/cars", upload.single("file"), CarsController.insertCar);
 router.get("/cars", CarsController.getCar);
 router.put("/cars", CarsController.updateCar);

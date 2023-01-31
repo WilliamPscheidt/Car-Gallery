@@ -10,7 +10,7 @@ class CarsController {
             const query_result = await CarsRepository.getCar(CarsModel, {car_title: car_title})
             return res.send({ok: query_result})
         } catch (error) {
-            return res.send({error: "error in database query"})
+            return res.send({error: "error in database"})
         }
     }
 
